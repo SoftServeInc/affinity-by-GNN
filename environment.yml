@@ -8,5 +8,5 @@ dependencies:
   - pytorch=1.5.1
   - cudatoolkit
   - dgllife=0.2.3
-  - dgl=0.4.3post2
+  - dgl-cuda10.2=0.4.3post2
   - rdkit=2018.09.1
