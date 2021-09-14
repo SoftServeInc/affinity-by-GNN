@@ -37,17 +37,20 @@ The code can be run as
 
     python train.py
 
-which will first train the model using the folds marked `0`,`1`,`2`,`3`, then make prediction on fold `4` and save the
+which will first train the model using the folds marked `0`,`1`,`2`,`3`, then make prediction on fold `4` 
+(this id can be set through `argv_valFold` and `argv_testFold` keys in `affinity_module/config.py`) and save the
 predicted affinities as text files.
 
 The input data needs to be supplied in two ways: a `.csv` defining the structure of ligands, PDB codes and UniProtIDs 
 of receptors and the distrubution of the data over five folds, and `.dssp` files defining the secondary structure
 elements of target proteins.
 
-Location of the `input.csv` containing ligand SMILES strings and other into, as well as the location
-of the folder containing .dssp files for receptors, should then be set by editing `affinity_module/config.py`
+Location of the `input.csv`, as well as the location of the folder containing .dssp files for receptors, 
+should then be set by editing `affinity_module/config.py`
 (see `master_data_table` and `dssp_files_path` keys respectively).
 
-To prepare receptor data in .dssp format, the underlying receptor structures, eitehr in PDB or CIF format,
-should be processed with DSSP program.
+To prepare receptor data in `.dssp` format, the underlying receptor structures, eitehr in PDB or CIF (preferably) format,
+should be processed with [DSSP](https://github.com/PDB-REDO/dssp) program, e.g.,
+
+    mkdssp --output-format dssp protein.cif > protein.dssp
 
